@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { TextField, Button, Container, Typography } from '@mui/material';
 
 const RedirectForm = ({ existingRedirect }) => {
   const [nfcId, setNfcId] = useState(existingRedirect ? existingRedirect.nfcId : '');
@@ -21,23 +22,40 @@ const RedirectForm = ({ existingRedirect }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="NFC ID"
-        value={nfcId}
-        onChange={(e) => setNfcId(e.target.value)}
-        required
-      />
-      <input
-        type="url"
-        placeholder="URL"
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-        required
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <Container maxWidth="sm">
+      <Typography variant="h5" gutterBottom>
+        {existingRedirect ? 'Update Redirect' : 'Create a New Redirect'}
+      </Typography>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="NFC ID"
+          variant="outlined"
+          fullWidth
+          value={nfcId}
+          onChange={(e) => setNfcId(e.target.value)}
+          required
+          margin="normal"
+        />
+        <TextField
+          label="URL"
+          variant="outlined"
+          fullWidth
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          required
+          margin="normal"
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          sx={{ mt: 2 }}
+        >
+          {existingRedirect ? 'Update URL' : 'Add URL'}
+        </Button>
+      </form>
+    </Container>
   );
 };
 

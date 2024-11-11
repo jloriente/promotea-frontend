@@ -10,8 +10,7 @@ const RedirectItem = ({ redirect }) => {
 
   return (
     <div>
-      <p>{redirect.nfcId} - {redirect.url}</p>
-      <button onClick={handleDelete}>Delete</button>
+      <p>ID: {redirect.nfcId} - URL: {redirect.url} <button onClick={handleDelete}>Delete</button></p>
     </div>
   );
 };
