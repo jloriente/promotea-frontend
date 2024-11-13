@@ -1,49 +1,31 @@
+import { Container, Typography, Box } from '@mui/material';
 import React from 'react';
-import { Box, TextField, FormControlLabel, Checkbox, Button } from '@mui/material';
+import promoteaLogo from '../assets/promotea-logo.png'; // Assuming the image is in src/assets
 
-const LoginPage = () => {
-  const [checked, setChecked] = React.useState(true);
 
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
+// Import SVG image as a React component (if using an SVG file)
+// import { ReactComponent as PromoteaIcon } from '../assets/promotea-icon.svg';
 
-  return (
-    <div style={{ padding: 30 }}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        spacing={3}
-      >
-        <img src={`${process.env.PUBLIC_URL}/images/promotea-logo.png`} alt="Company Logo" 
-            style={{ width: '300px', height: 'auto', margin: '30px'}}/>
+function NavBar() {
+    return (
+        <Container maxWidth="md">
+            <Box mt={2}>
+                <Typography variant="h4" gutterBottom>
+                    Welcome to Promotea!
+                </Typography>
+                <img src={promoteaLogo} alt="Promotea Logo" style={{ width: '200px', height: 'auto', marginTop: '20px' }} />
+                <Typography variant="body1" mt={2}>
+                    Promotea is our new service to help businesses of all sizes promote their brand and reach a wider audience.
+                    With powerful analytics, seamless integrations, and tailored strategies, Promotea empowers you to grow
+                    your business effectively.
+                </Typography>
+                <Typography variant="body2" color="textSecondary" mt={1}>
+                    With powerful analytics, seamless integrations, and tailored strategies,
+                    Promotea empowers you to engage with new customers and grow your brand.
+                </Typography>
+            </Box>
+        </Container>
+    );
+}
 
-        <Box width="100%">
-          <TextField label="Username" fullWidth />
-        </Box>
-        <Box width="100%">
-          <TextField label="Password" type="password" fullWidth />
-        </Box>
-        <Box width="100%">
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={checked}
-                onChange={handleChange}
-                inputProps={{ 'aria-label': 'primary checkbox' }}
-              />
-            }
-            label="Keep me logged in"
-          />
-        </Box>
-        <Box width="100%">
-          <Button fullWidth> Login </Button>
-        </Box>
-      </Box>
-    </div>
-  );
-};
-
-export default LoginPage;
+export default NavBar;

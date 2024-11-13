@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, Typography, Grid, Card, CardContent, Button } from '@mui/material';
+import { Container, Typography, Grid, Card, CardContent, Button, Switch } from '@mui/material';
 
 const RedirectList = () => {
   const [redirects, setRedirects] = useState([]);
@@ -16,7 +16,6 @@ const RedirectList = () => {
       <Typography variant="h4" gutterBottom>
         Redirection URLs in the system
       </Typography>
-      
       <Grid container spacing={2}>
         {redirects.map(redirect => (
           <Grid item xs={12} sm={6} md={4} key={redirect._id}>
@@ -28,6 +27,32 @@ const RedirectList = () => {
                 <Typography variant="body2" color="text.secondary">
                   URL: {redirect.url}
                 </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  NAME: {redirect.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  DESCRIPTION: {redirect.description}
+                </Typography>
+
+                {/* Additional Fields with Switches */}
+                <Typography variant="body2" color="text.secondary">
+                  Enabled:
+                  <Switch checked={redirect.enabled} disabled />
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Initialized by User:
+                  <Switch checked={redirect.initializedByUser} disabled />
+                </Typography>
+
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={`/edit/$`}
+                  sx={{ mt: 2 }}
+                >
+                  Edit
+                </Button>
+                <span>    </span>
                 <Button
                   variant="contained"
                   color="primary"
@@ -36,6 +61,7 @@ const RedirectList = () => {
                 >
                   Delete
                 </Button>
+
               </CardContent>
             </Card>
           </Grid>

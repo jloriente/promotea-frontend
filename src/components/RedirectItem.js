@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const RedirectItem = ({ redirect }) => {
   const handleDelete = () => {
@@ -10,7 +11,10 @@ const RedirectItem = ({ redirect }) => {
 
   return (
     <div>
-      <p>ID: {redirect.nfcId} - URL: {redirect.url} <button onClick={handleDelete}>Delete</button></p>
+      <p>
+        ID: {redirect.nfcId} - URLs: {redirect.url}  NAME: {redirect.name} - DESCRIPTION: {redirect.descrpition} 
+        <button onClick={handleDelete}>Delete</button></p>
+        <button onClick={handleRedirect}>Go to Redirect</button>
     </div>
   );
 };
