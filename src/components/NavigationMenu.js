@@ -7,8 +7,8 @@ const NavigationMenu = () => (
     <AppBar position="static">
       <Toolbar>
         <Button color="inherit" component={Link} to="/">Home</Button>
-        <Button color="inherit" component={Link} to="/create-redirect">Create New</Button>
         <Button color="inherit" component={Link} to="/redirects">Redirects</Button>
+        <Button color="inherit" component={Link} to="/create-redirect">Create New</Button>
       </Toolbar>
     </AppBar>
   </Box>

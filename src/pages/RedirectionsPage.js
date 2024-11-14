@@ -12,6 +12,7 @@ function NavBar() {
                 <Typography variant="h4" gutterBottom>
                     Promotea
                 </Typography>
+                <RedirectList />
             </Container>
         </div>
 
